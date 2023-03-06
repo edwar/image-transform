@@ -9,7 +9,7 @@
 <div class="max-w-xl m-auto grid grid-cols-1 place-content-between w-full h-screen p-4">
   <header class="flex justify-center">
     <h1 class="text-3xl font-bold text-gray-600 tracking-tighter">
-      Transform<span class="text-gray-300">img</span>
+      Remove<span class="text-gray-300">.pro</span>
     </h1>
   </header>
 
