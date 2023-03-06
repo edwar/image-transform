@@ -8,6 +8,8 @@
   let processingImage = true
   let tries = 0
   let intervalId
+  let w = 0
+  let h = 0
 
   $: {
     if(processingImage) {
@@ -35,7 +37,11 @@
 <two-up>
   <img src={$originalImage} alt="Imagen original subida por el usuario"/>
   {#if processingImage}
-    <SkeletonImage borderRadius='0%' width={1200} height={1200} showIcon effect="wave" color='#999' iconColor='#fff' />
+    <div class="flex justify-center items-center w-full h-full" bind:clientHeight={h} bind:clientWidth={w}>
+      {#if w > 0 && h > 0}
+        <SkeletonImage borderRadius='0%' width={w} height={h} showIcon effect="wave" color='#999' iconColor='#fff' />
+      {/if}
+    </div>
   {:else}
     {#if !errorImage}
       <img
@@ -43,7 +49,7 @@
         alt="Imagen original subida por el usuario"
       />
     {:else}
-      <div class="flex w-full h-full">
+      <div class="flex justify-center items-center w-full h-full">
         <Error />
       </div>
     {/if}
